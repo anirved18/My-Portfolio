@@ -1,0 +1,50 @@
+####################################
+# Node / JavaScript dependencies
+####################################
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+
+####################################
+# Build / output
+####################################
+dist/
+build/
+.cache/
+.parcel-cache/
+
+####################################
+# Environment & local config
+####################################
+.env
+.env.*.local
+.env.local
+.DS_Store
+Thumbs.db
+
+####################################
+# Logs
+####################################
+logs/
+*.log
+*.log.*
+
+####################################
+# Editor / OS files
+####################################
+.vscode/
+.idea/
+*.swp
+*.swo
+.history/
+
+####################################
+# Misc
+####################################
+coverage/
+.nyc_output/
+
+
