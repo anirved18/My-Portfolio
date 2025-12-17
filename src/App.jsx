@@ -1,4 +1,5 @@
 import React from 'react';
+import profileImg from './assets/profile.jpg';
 
 const navLinks = [
   { id: 'home', label: 'Home' },
@@ -112,7 +113,7 @@ function App() {
               <div className="shrink-0">
                 <div className="h-20 w-20 sm:h-24 sm:w-24 rounded-3xl overflow-hidden border border-slate-700 bg-slate-800">
                   <img
-                    src="/profile.jpg"
+                    src={profileImg}
                     alt="Anirved Panda"
                     className="h-full w-full object-cover"
                   />
