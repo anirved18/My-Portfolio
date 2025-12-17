@@ -105,19 +105,31 @@ function App() {
         {/* Hero */}
         <section
           id="home"
-          className="mx-auto max-w-6xl px-4 sm:px-8 py-12 sm:py-20 flex flex-col lg:flex-row items-center gap-12"
+          className="mx-auto max-w-6xl px-4 sm:px-8 py-12 sm:py-20 flex flex-col lg:flex-row items-start gap-12"
         >
           <div className="flex-1 space-y-6">
-            <div className="inline-flex flex-col gap-2 rounded-[2.75rem] bg-slate-900/70 border border-slate-700 shadow-2xl shadow-black/60 px-6 py-5">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.35em] text-slate-400">
-                Portfolio
-              </p>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white">
-                Anirved <span>Panda</span>
-              </h1>
-              <p className="text-xs sm:text-sm text-slate-300">
-                Web Developer · Data Science Enthusiast
-              </p>
+            <div className="inline-flex items-center gap-4 rounded-[2.75rem] bg-slate-900/70 border border-slate-700 shadow-2xl shadow-black/60 px-6 py-5">
+              <div className="shrink-0">
+                <div className="h-20 w-20 sm:h-24 sm:w-24 rounded-3xl overflow-hidden border border-slate-700 bg-slate-800">
+                  <img
+                    src="/profile.jpg"
+                    alt="Anirved Panda"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.35em] text-slate-400">
+                  Portfolio
+                </p>
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
+                  Anirved <span>Panda</span>
+                </h1>
+                <p className="text-xs sm:text-sm text-slate-300">
+                  Web Developer · Data Science Enthusiast
+                </p>
+              </div>
             </div>
             <p className="text-sm sm:text-base text-slate-200/90 max-w-xl">
               I&apos;m a 4th-year B.Tech CSE student at ITER who loves building
@@ -141,7 +153,7 @@ function App() {
           </div>
 
           <div className="flex-1 w-full">
-            <div className="rounded-[2.5rem] border border-slate-700 bg-slate-900/70 shadow-2xl shadow-black/70 p-6 sm:p-8 space-y-5">
+            <div className="rounded-[2.5rem] border border-slate-700 bg-slate-900/70 shadow-2xl shadow-black/70 p-6 sm:p-8 space-y-4">
               <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-slate-400">
                 Snapshot
               </p>
@@ -150,7 +162,7 @@ function App() {
                   <span className="font-semibold">Current</span> · B.Tech CSE @ ITER (CGPA 8.85)
                 </p>
                 <p>
-                  <span className="font-semibold">Focus</span> · Frontend experiences, data visualisation &
+                  <span className="font-semibold">Focus</span> · Frontend experiences, data visualisation &amp;
                   intelligent systems.
                 </p>
                 <p>
