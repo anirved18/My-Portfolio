@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import profileImg from './assets/profile.jpg';
 
 const navLinks = [
@@ -25,6 +25,14 @@ const projects = [
       'Interactive platform that demonstrates sorting and searching algorithms with step-by-step animations and a clean, responsive UI.',
     tech: ['JavaScript', 'HTML', 'CSS', 'Algorithms'],
     link: 'https://algonexus.vercel.app/',
+  },
+  {
+    title: 'AI Resume Analyzer',
+    badge: 'Web App · NLP',
+    description:
+      'Uploads a resume, scores it against a role, and returns focused feedback plus improvement suggestions.',
+    tech: ['JavaScript', 'NLP', 'AI'],
+    link: 'https://github.com/anirved18/ai-resume-analyzer',
   },
   {
     title: 'RAG-Based AI System for Video Knowledge Retrieval',
@@ -73,26 +81,31 @@ const journeySteps = [
 ];
 
 function App() {
+  const [showProfileModal, setShowProfileModal] = useState(false);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
       {/* Main dark overlay */}
       <div className="relative min-h-screen bg-slate-950/85 text-slate-50">
         {/* Navbar */}
-        <header className="sticky top-0 z-20 border-b border-slate-800 bg-slate-950/80 backdrop-blur-md">
-          <div className="mx-auto max-w-6xl px-4 sm:px-8 flex items-center justify-between h-16 text-slate-100">
-            <div className="flex items-baseline gap-2">
-              <span className="text-xl font-black tracking-tight">Portfolio.</span>
-              <span className="hidden sm:inline text-xs uppercase tracking-[0.25em] text-slate-400">
+        <header className="sticky top-0 z-20 bg-slate-950/80 backdrop-blur-lg">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-3">
+            <div className="flex items-center gap-2">
+              <span className="text-lg sm:text-xl font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-sky-400 to-indigo-300">
+                Portfolio
+              </span>
+              <span className="hidden sm:inline text-[11px] uppercase tracking-[0.28em] text-slate-400">
                 Anirved Panda
               </span>
             </div>
+
             <nav className="hidden md:block">
-              <ul className="flex gap-6 text-xs font-semibold uppercase tracking-[0.18em] text-slate-300">
+              <ul className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-300">
                 {navLinks.map((link) => (
                   <li key={link.id}>
                     <a
                       href={`#${link.id}`}
-                      className="hover:text-slate-50 hover:underline underline-offset-4"
+                      className="inline-flex items-center px-3 py-2 rounded-full border border-transparent hover:border-sky-500/40 hover:bg-sky-500/10 hover:text-sky-100 transition"
                     >
                       {link.label}
                     </a>
@@ -109,7 +122,15 @@ function App() {
           className="mx-auto max-w-6xl px-4 sm:px-8 py-12 sm:py-20 flex flex-col lg:flex-row items-start gap-12"
         >
           <div className="flex-1 space-y-6">
-            <div className="inline-flex items-center gap-4 rounded-[2.75rem] bg-slate-900/70 border border-slate-700 shadow-2xl shadow-black/60 px-6 py-5">
+            <div
+              className="inline-flex items-center gap-4 rounded-[2.75rem] bg-slate-900/70 border border-slate-700 shadow-2xl shadow-black/60 px-6 py-5 transition-transform duration-200 ease-out hover:-translate-y-1 hover:border-sky-500/60 hover:shadow-black/80 cursor-pointer"
+              role="button"
+              tabIndex={0}
+              onClick={() => setShowProfileModal(true)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') setShowProfileModal(true);
+              }}
+            >
               <div className="shrink-0">
                 <div className="h-20 w-20 sm:h-24 sm:w-24 rounded-3xl overflow-hidden border border-slate-700 bg-slate-800">
                   <img
@@ -124,8 +145,10 @@ function App() {
                 <p className="text-[11px] font-semibold uppercase tracking-[0.35em] text-slate-400">
                   Portfolio
                 </p>
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
-                  Anirved <span>Panda</span>
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight">
+                  <span className="bg-gradient-to-r from-sky-300 via-sky-500 to-indigo-300 bg-clip-text text-transparent animate-name">
+                    Anirved Panda
+                  </span>
                 </h1>
                 <p className="text-xs sm:text-sm text-slate-300">
                   Web Developer · Data Science Enthusiast
@@ -154,7 +177,7 @@ function App() {
           </div>
 
           <div className="flex-1 w-full">
-            <div className="rounded-[2.5rem] border border-slate-700 bg-slate-900/70 shadow-2xl shadow-black/70 p-6 sm:p-8 space-y-4">
+            <div className="rounded-[2.5rem] border border-slate-700 bg-slate-900/70 shadow-2xl shadow-black/70 p-6 sm:p-8 space-y-4 transition-transform duration-200 ease-out hover:-translate-y-1 hover:border-sky-500/60 hover:shadow-black/80">
               <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-slate-400">
                 Snapshot
               </p>
@@ -190,7 +213,7 @@ function App() {
             {Object.entries(skills).map(([category, items]) => (
               <div
                 key={category}
-                className="rounded-2xl border border-slate-700 bg-slate-900/80 p-5 shadow-md shadow-black/60 hover:shadow-xl transition"
+                className="rounded-2xl border border-slate-700 bg-slate-900/80 p-5 shadow-md shadow-black/60 transition-transform duration-200 ease-out hover:-translate-y-1 hover:border-sky-500/60 hover:shadow-xl"
               >
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400 mb-3">
                   {category}
@@ -225,7 +248,7 @@ function App() {
             {projects.map((project) => (
               <article
                 key={project.title}
-                className="rounded-2xl border border-slate-800 bg-slate-900/80 p-5 sm:p-6 shadow-md shadow-black/60 hover:shadow-xl hover:-translate-y-0.5 transition"
+                className="rounded-2xl border border-slate-800 bg-slate-900/80 p-5 sm:p-6 shadow-md shadow-black/60 transition-transform duration-200 ease-out hover:-translate-y-1 hover:border-sky-500/60 hover:shadow-xl"
               >
                 <p className="inline-flex items-center rounded-full bg-sky-500 text-slate-950 text-[10px] font-semibold uppercase tracking-[0.2em] px-3 py-1 mb-3">
                   {project.badge}
@@ -285,7 +308,7 @@ function App() {
                   {idx + 1}
                 </div>
                 {/* Card */}
-                <div className="mt-0 md:mt-6 rounded-2xl border border-slate-700 bg-slate-900/80 p-4 shadow-md shadow-black/60 h-full flex flex-col">
+                <div className="mt-0 md:mt-6 rounded-2xl border border-slate-700 bg-slate-900/80 p-4 shadow-md shadow-black/60 h-full flex flex-col transition-transform duration-200 ease-out hover:-translate-y-1 hover:border-sky-500/60 hover:shadow-xl">
                   <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-slate-400 mb-1">
                     {step.label}
                   </p>
@@ -313,16 +336,44 @@ function App() {
               </p>
               <div className="space-y-1 text-sm text-slate-200">
                 <p>
-                  <span className="font-semibold">Email:</span> anirvedpanda1818@gmail.com
+                  <span className="font-semibold">Email:</span>{' '}
+                  <a
+                    href="mailto:anirvedpanda1818@gmail.com"
+                    className="text-sky-300 hover:text-sky-100 transition-colors"
+                  >
+                    anirvedpanda1818@gmail.com
+                  </a>
                 </p>
                 <p>
-                  <span className="font-semibold">GitHub:</span> @anirved18
+                  <span className="font-semibold">GitHub:</span>{' '}
+                  <a
+                    href="https://github.com/anirved18"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-sky-300 hover:text-sky-100 transition-colors"
+                  >
+                    @anirved18
+                  </a>
                 </p>
                 <p>
-                  <span className="font-semibold">LinkedIn:</span> Anirved Panda
+                  <span className="font-semibold">LinkedIn:</span>{' '}
+                  <a
+                    href="https://www.linkedin.com/in/anirved-panda-917639299/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-sky-300 hover:text-sky-100 transition-colors"
+                  >
+                    Anirved Panda
+                  </a>
                 </p>
                 <p>
-                  <span className="font-semibold">Phone:</span> +91 76059 41450
+                  <span className="font-semibold">Phone:</span>{' '}
+                  <a
+                    href="tel:+917605941450"
+                    className="text-sky-300 hover:text-sky-100 transition-colors"
+                  >
+                    +91 76059 41450
+                  </a>
                 </p>
               </div>
             </div>
@@ -344,6 +395,61 @@ function App() {
         <footer className="py-4 text-center text-[11px] text-slate-500">
           <p>Designed &amp; built with React, Vite &amp; Tailwind CSS · Dark theme · Anirved Panda</p>
         </footer>
+
+        {showProfileModal && (
+          <div className="fixed inset-0 z-30 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4">
+            <div className="relative w-full max-w-md rounded-3xl border border-slate-700 bg-slate-900/95 p-6 shadow-2xl shadow-black/80">
+              <button
+                onClick={() => setShowProfileModal(false)}
+                className="absolute top-3 right-3 inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-700 text-slate-300 hover:text-white hover:border-sky-500/70 hover:bg-sky-500/10 transition"
+                aria-label="Close profile"
+              >
+                ×
+              </button>
+              <div className="flex items-center gap-4 mb-4">
+                <div className="h-16 w-16 rounded-2xl overflow-hidden border border-slate-700">
+                  <img src={profileImg} alt="Anirved Panda" className="h-full w-full object-cover" />
+                </div>
+                <div>
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-slate-400">Portfolio</p>
+                  <h3 className="text-xl font-bold text-white">Anirved Panda</h3>
+                  <p className="text-xs text-slate-300">Web Developer · Data Science Enthusiast</p>
+                </div>
+              </div>
+              <div className="space-y-2 text-sm text-slate-200">
+                <p>
+                  I build clean, user-focused web experiences and data-driven tools. Currently a 4th-year B.Tech CSE
+                  student at ITER (CGPA 8.85).
+                </p>
+                <p>
+                  <span className="font-semibold text-slate-100">Focus:</span> Frontend experiences, data
+                  visualisation, and intelligent systems.
+                </p>
+                <p>
+                  <span className="font-semibold text-slate-100">What I value:</span> Clarity, performance, and
+                  dependable delivery.
+                </p>
+              </div>
+              <div className="mt-4 flex flex-wrap gap-2">
+                <a
+                  href="#projects"
+                  className="inline-flex items-center justify-center rounded-full px-4 py-2 text-xs font-semibold bg-sky-500 text-slate-950 hover:bg-sky-400 transition"
+                  onClick={() => setShowProfileModal(false)}
+                >
+                  View Projects
+                </a>
+                <a
+                  href="#contact"
+                  className="inline-flex items-center justify-center rounded-full px-4 py-2 text-xs font-semibold border border-slate-600 text-slate-100 hover:bg-slate-100 hover:text-slate-950 transition"
+                  onClick={() => setShowProfileModal(false)}
+                >
+                  Contact
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
+
       </div>
     </div>
   );
