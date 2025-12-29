@@ -32,7 +32,6 @@ const projects = [
     description:
       'Uploads a resume, scores it against a role, and returns focused feedback plus improvement suggestions.',
     tech: ['JavaScript', 'NLP', 'AI'],
-    link: 'https://github.com/anirved18/ai-resume-analyzer',
   },
   {
     title: 'RAG-Based AI System for Video Knowledge Retrieval',
@@ -61,12 +60,12 @@ const journeySteps = [
   {
     label: 'Foundation',
     title: 'Schooling & Senior Secondary',
-    text: 'Built a strong base in science and mathematics at Sri Prakash Vidyaniketan and Vignan Vidyalayam (82% & 88%).',
+    text: 'Built a strong base in science and mathematics at Sri Prakash Vidyaniketan and Vignan Vidyalayam.',
   },
   {
     label: 'Computer Science',
     title: 'B.Tech CSE @ ITER',
-    text: 'Pursuing B.Tech in Computer Science with a CGPA of 8.85, focusing on web development and data science.',
+    text: 'Pursuing B.Tech in Computer Science, focusing on web development and data science.',
   },
   {
     label: 'Building Projects',
@@ -183,7 +182,7 @@ function App() {
               </p>
               <div className="grid gap-3 text-sm text-slate-200">
                 <p>
-                  <span className="font-semibold">Current</span> · B.Tech CSE @ ITER (CGPA 8.85)
+                  <span className="font-semibold">Current</span> · B.Tech CSE @ ITER
                 </p>
                 <p>
                   <span className="font-semibold">Focus</span> · Frontend experiences, data visualisation &amp;
@@ -419,7 +418,7 @@ function App() {
               <div className="space-y-2 text-sm text-slate-200">
                 <p>
                   I build clean, user-focused web experiences and data-driven tools. Currently a 4th-year B.Tech CSE
-                  student at ITER (CGPA 8.85).
+                  student at ITER.
                 </p>
                 <p>
                   <span className="font-semibold text-slate-100">Focus:</span> Frontend experiences, data
